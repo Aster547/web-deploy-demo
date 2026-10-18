@@ -7,7 +7,9 @@
     },
     "frontend": {
       "root": "frontend",
-      "framework": "vite"
+      "framework": "vite",
+      "buildCommand": "VITE_OUT_DIR=dist bun run build",
+      "outputDirectory": "dist"
     }
   },
   "rewrites": [

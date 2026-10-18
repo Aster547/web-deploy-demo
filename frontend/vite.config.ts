@@ -7,7 +7,10 @@ import { defineConfig } from "vite"
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir: "../backend/app/frontend",
+    // Defaults to building into the FastAPI app (the template's single-service
+    // setup). On Vercel we build the frontend as its own service, so the build
+    // sets VITE_OUT_DIR=dist to keep the output inside the service root.
+    outDir: process.env.VITE_OUT_DIR ?? "../backend/app/frontend",
     emptyOutDir: true,
   },
   resolve: {
